@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garage - Home</title>
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="login">
+
+  <!-- Navbar -->
+  <nav class="ayan">
+    <a href="home.html"><i class="fa fa-home"></i></a>
+    <a href="vehicles.html"><i class="fa fa-car"></i></a>
+    <a href="service.html"><i class="fa fa-wrench"></i></a>
+    <a href="reviews.html">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </a>
+    <a href="contact.html"><i class="fa fa-phone"></i></a>
+    <a href="login.html"><i class="fa fa-sign-in"></i></a>
+  </nav>
+
+  <!-- Intro Section -->
+  <section class="intro">
+    <div class="intro-text reveal">
+      <h1>Welcome to Our Garage</h1>
+      <p>We bring passion, precision, and power together — delivering the best vehicles and services just for you.</p>
+    </div>
+
+    <div class="intro-image reveal">
+      <img src="/Car/images/car1.avif" alt="Car Image">
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects reveal">
+    <h2>Our Services</h2>
+    <div class="project-card" >
+      
+      🚗 Premium Cars for Sale
+    </div>
+    <div class="project-card">🔧 Reliable Vehicle Services</div>
+    <div class="project-card">⭐ Customer Reviews & Ratings</div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="reveal">
+    <p>&copy; 2025 Garage. Built with ❤️ and precision.</p>
+  </footer>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const revealElements = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      revealElements.forEach(el => observer.observe(el));
+    });
+  </script>
+
+</body>
+</html>

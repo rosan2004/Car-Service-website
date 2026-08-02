@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Reviews</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="reviews.css" />
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Nav -->
+  <nav class="ayan">
+    <a href="home.html" aria-label="Home"><i class="fa fa-home" style="font-size:36px"></i></a>
+    <a href="vehicles.html" aria-label="Vehicles"><i class="fa fa-car" style="font-size:34px;"></i></a>
+    <a href="service.html" aria-label="Service"><i class="fa fa-wrench" style="font-size:36px"></i></a>
+    <a href="reviews.html" aria-label="Reviews">
+      <i class="fa fa-star checked"></i>
+      <i class="fa fa-star checked"></i>
+      <i class="fa fa-star checked"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+    </a>
+    <a href="contact.html" aria-label="Contact"><i class="fa fa-phone" style="font-size:36px"></i></a>
+    <a href="login.html" aria-label="Login"><i class="fa fa-sign-in" style="font-size:36px"></i></a>
+  </nav>
+
+  <!-- Reviews Section -->
+  <section class="reviews">
+    <h2>What Our Customers Say</h2>
+
+    <div class="slider">
+      <!-- Prev Button -->
+      <button class="prev" aria-label="Previous review">&#10094;</button>
+
+      <!-- Slides wrapper -->
+      <div class="slides">
+        
+        <!-- Slide 1 -->
+        <div class="response-box">
+          <img src="/Car/images/IMG_20220915_222505.jpg" alt="Alex" class="reviewer-img">
+          <p>"Excellent service and top quality vehicles! Highly recommend."</p>
+          <div class="stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <h3>- Alex</h3>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="response-box">
+          <img src="https://i.pravatar.cc/80?img=32" alt="Maria" class="reviewer-img">
+          <p>"Affordable and reliable. Will definitely come back."</p>
+          <div class="stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <h3>- Maria</h3>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="response-box">
+          <img src="https://i.pravatar.cc/80?img=55" alt="John" class="reviewer-img">
+          <p>"Best car experience I've ever had. Friendly staff and smooth process!"</p>
+          <div class="stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+          </div>
+          <h3>- John</h3>
+        </div>
+
+      </div>
+
+      <!-- Next Button -->
+      <button class="next" aria-label="Next review">&#10095;</button>
+    </div>
+
+    <!-- Dots -->
+    <div class="dots"></div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="reviews.js"></script>
+</body>
+</html>

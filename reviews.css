@@ -1,0 +1,180 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #1f1c2c, #928dab);
+  color: #fff;
+  text-align: center;
+}
+
+/* Top Navigation */
+nav.ayan {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: #222;
+}
+
+nav.ayan a {
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+nav.ayan a:hover {
+  transform: scale(1.2);
+}
+
+.checked {
+  color: gold;
+}
+
+/* Reviews Section */
+.reviews {
+  padding: 60px 20px;
+}
+
+.reviews h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #ffdd57;
+}
+
+/* Slider Container */
+.slider {
+  position: relative;
+  max-width: 650px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+/* Individual review box */
+.response-box {
+  min-width: 100%;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.response-box.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reviewer image */
+.reviewer-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #ffdd57;
+  object-fit: cover;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* Reviewer name */
+.response-box h3 {
+  margin-top: 12px;
+  font-weight: 500;
+  color: #ffdd57;
+}
+
+/* Review text */
+.response-box p {
+  font-size: 1rem;
+  margin: 10px 0 15px;
+  line-height: 1.5;
+  color: #f1f1f1;
+}
+
+/* Stars */
+.stars {
+  margin: 8px 0;
+}
+
+.fa-star {
+  font-size: 1.2rem;
+  margin: 0 2px;
+}
+
+.fa-star.checked {
+  color: gold;
+  animation: glow 0.6s ease-in-out;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ffd700, 0 0 10px #ffa500; }
+  to { text-shadow: 0 0 20px #ffd700, 0 0 30px #ffa500; }
+}
+
+/* Prev/Next buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  padding: 14px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.4);
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+/* Dots */
+.dots {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.dots span {
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.dots span.active {
+  background-color: #ffdd57;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .response-box {
+    padding: 20px 15px;
+  }
+  .reviews h2 {
+    font-size: 1.7rem;
+  }
+  .reviewer-img {
+    width: 70px;
+    height: 70px;
+  }
+}

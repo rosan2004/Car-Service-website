@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicles</title>
+  <link rel="stylesheet" href="vehicles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="vec">
+  
+  <!-- Navbar -->
+  <div>
+        <nav class="ayan"> 
+            <a href="home.html"><i class="fa fa-home" id="nav" style="font-size:36px"></i></a>
+            <a href="vehicles.html"><i class="fa fa-car" id="nav" style="font-size:34px;"></i></a>
+            <a href="service.html" id="nav"><i class="fa fa-wrench" style="font-size:36px"></i></a>
+            <a href="reviews.html" id="nav">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </a>
+            <a href="contact.html" id="nav"><i class="fa fa-phone" style="font-size:36px"></i></a>
+            <a href="login.html" id="nav"><i class="fa fa-sign-in" style="font-size:36px"></i></a>
+        </nav>
+  </div>
+
+  <!-- Search, Filter & Sort -->
+  <div class="filter-bar">
+    <input type="text" id="searchBox" placeholder="🔍 Search vehicles...">
+    
+    <select id="brandFilter">
+      <option value="all">All Brands</option>
+      <option value="porsche">Porsche</option>
+      <option value="mclaren">McLaren</option>
+      <option value="bugatti">Bugatti</option>
+      <option value="koenigsegg">Koenigsegg</option>
+      <option value="ssc">SSC</option>
+      <option value="toyota">Toyota</option>
+      <option value="lamborghini">Lamborghini</option>
+    </select>
+
+    <select id="sortFilter">
+      <option value="default">Sort By</option>
+      <option value="price-low">Price: Low → High</option>
+      <option value="price-high">Price: High → Low</option>
+      <option value="speed-low">Speed: Low → High</option>
+      <option value="speed-high">Speed: High → Low</option>
+    </select>
+  </div>
+
+  <!-- Vehicles Grid -->
+  <section class="vehicle-list" id="vehicleList">
+    <div class="card" data-brand="porsche">
+      <img src="/Car/images/Porsche 911 GT2 RS.jpg" alt="Porsche 911 GT2 RS">
+      <h2>Porsche 911 GT2 RS</h2>
+      <p class="details">💲 293,200 | ⚡ 211mph</p>
+    </div>
+
+    <div class="card" data-brand="mclaren">
+      <img src="/Car/images/McLaren Senna.jpg" alt="McLaren Senna">
+      <h2>McLaren Senna</h2>
+      <p class="details">💲 1,000,000 | ⚡ 208mph</p>
+    </div>
+
+    <div class="card" data-brand="bugatti">
+      <img src="/Car/images/Bugatti Chiron.jpg" alt="Bugatti Chiron">
+      <h2>Bugatti Chiron</h2>
+      <p class="details">💲 3,000,000 | ⚡ 261mph</p>
+    </div>
+
+    <div class="card" data-brand="koenigsegg">
+      <img src="/Car/images/Koenigsegg Agera RS.jpg" alt="Koenigsegg Agera RS">
+      <h2>Koenigsegg Agera RS</h2>
+      <p class="details">💲 2,500,000 | ⚡ 277mph</p>
+    </div>
+
+    <div class="card" data-brand="ssc">
+      <img src="/Car/images/SSC Tuatara.jpg" alt="SSC Tuatara">
+      <h2>SSC Tuatara</h2>
+      <p class="details">💲 1,900,000 | ⚡ 282mph</p>
+    </div>
+
+    <div class="card" data-brand="toyota">
+      <img src="/Car/images/Toyota Supra MK4.jpg" alt="Toyota Supra MK4">
+      <h2>Toyota Supra MK4</h2>
+      <p class="details">💲 50,000 | ⚡ 155mph</p>
+    </div>
+
+    <div class="card" data-brand="lamborghini">
+      <img src="/Car/images/Lamborghini Aventador SV.jpg" alt="Lamborghini Aventador SV">
+      <h2>Lamborghini Aventador SV</h2>
+      <p class="details">💲 497,000 | ⚡ 217mph</p>
+    </div>
+  </section>
+
+  <script src="vehicles.js"></script>
+</body>
+</html>

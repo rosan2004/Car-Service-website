@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked { color: orange; } 
+    </style>
+</head>
+<body class="log">
+
+    <!-- Navbar -->
+    <div>
+        <nav class="ayan">
+            <a href="home.html"><i class="fa fa-home" style="font-size:36px"></i></a>
+            <a href="vehicles.html"><i class="fa fa-car" style="font-size:34px;"></i></a>
+            <a href="service.html"><i class="fa fa-wrench" style="font-size:36px"></i></a>
+            <a href="reviews.html">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </a>
+            <a href="contact.html"><i class="fa fa-phone" style="font-size:36px"></i></a>
+            <a href="login.html"><i class="fa fa-sign-in" style="font-size:36px"></i></a>
+        </nav>
+    </div>
+
+    <!-- Login Form -->
+    <fieldset class="lo">
+        <legend><h2 id="lo">Login / SignUp</h2></legend>
+
+        <form class="login">
+            <p>Email 
+                <input type="email" class="pas" id="emi" placeholder="Mail id" required>
+            </p>
+
+            <p>Password 
+                <input type="password" class="pas" id="pass" placeholder="Password" required>
+            </p>
+
+            <pre class="text">
+Your Password must contain at least:
+- One uppercase letter (ABCD)
+- One lowercase letter (abcd)
+- One number (12345)
+- One special character (!@#%$&*)
+Password length: 8 to 16 characters.
+            </pre>
+
+            <div class="button-container">
+                <input id="op" type="submit" value="Login">
+                <a href="signup.html" id="signup-btn">Sign Up</a>
+            </div>
+        </form>
+    </fieldset>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+server {
+    root /var/www/rosanengineer;
+    index index.html;
+
+    server_name rosan.engineer www.rosan.engineer;
+
+    # =========================
+    # ✅ MAIN WEBSITE + REMOVE .html
+    # =========================
+    location / {
+        try_files $uri $uri/ $uri.html =404;
+    }
+
+    # =========================
+    # ✅ Socket.IO (WebSocket)
+    # =========================
+    location /socket.io/ {
+        proxy_pass http://127.0.0.1:3000/socket.io/;
+        proxy_http_version 1.1;
+
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # =========================
+    # ✅ Visitor File Upload
+    # =========================
+    location /upload {
+        proxy_pass http://127.0.0.1:3000/upload;
+        client_max_body_size 50M;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # =========================
+    # ✅ Admin Upload (send file to visitor)
+    # =========================
+    location /admin-upload {
+        proxy_pass http://127.0.0.1:3000/admin-upload;
+        client_max_body_size 50M;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # =========================
+    # ✅ Download uploaded files
+    # =========================
+    location /uploads/ {
+        proxy_pass http://127.0.0.1:3000/uploads/;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # =========================
+    # ✅ Chat History API
+    # =========================
+    location /history/ {
+        proxy_pass http://127.0.0.1:3000/history/;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # =========================
+    # ✅ Call History API
+    # =========================
+    location /call-history/ {
+        proxy_pass http://127.0.0.1:3000/call-history/;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # =========================
+    # ✅ Admin Sent Files API (per visitor)
+    # =========================
+    location /files/ {
+        proxy_pass http://127.0.0.1:3000/files/;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # =========================
+    # ✅ Visitor Files API (per visitor)
+    # =========================
+    location /visitor-files/ {
+        proxy_pass http://127.0.0.1:3000/visitor-files/;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # =========================
+    # ✅ Admin Uploads Manager (ALL FILES)
+    # =========================
+    location /admin/uploads {
+        proxy_pass http://127.0.0.1:3000/admin/uploads;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # =========================
+    # ✅ Telegram Webhook
+    # =========================
+    location /telegram {
+        proxy_pass http://127.0.0.1:3000/telegram;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # =========================
+    # ✅ Password Protect Admin Pages
+    # =========================
+    location = /admin.html {
+        auth_basic "Admin Only";
+        auth_basic_user_file /etc/nginx/.htpasswd;
+    }
+
+    location = /admin-call.html {
+        auth_basic "Admin Only";
+        auth_basic_user_file /etc/nginx/.htpasswd;
+    }
+
+    # =========================
+    # ✅ SSL (Certbot)
+    # =========================
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    ssl_certificate /etc/letsencrypt/live/rosan.engineer/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/rosan.engineer/privkey.pem;
+
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
+
+# ✅ HTTP Redirect to HTTPS
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name rosan.engineer www.rosan.engineer;
+
+    return 301 https://$host$request_uri;
+}
